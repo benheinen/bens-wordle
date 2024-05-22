@@ -1,0 +1,281 @@
+body {
+  background-color: #e8e4e4;
+  overflow: hidden;
+}
+
+h1 {
+  margin-top: 0px;
+  margin-bottom: 10px;
+  font-size: 50px;
+  user-select: none;
+}
+
+h2 {
+  margin-top: 0px;
+  margin-bottom: 30px;
+  font-weight: lighter;
+}
+
+/*Toggles for active screens*/
+.screen {
+  display: none;
+}
+.active-screen {
+  opacity: 1;
+  display: block;
+}
+
+.welcomeModuleContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  font-family: Helvetica;
+}
+
+.welcomeModuleIcon {
+  width: 100px;
+  height: auto;
+}
+
+.welcomeModuleButtonContainer {
+  display: flex;
+  min-height: 50px;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+  user-select: none;
+}
+
+.welcomeModuleButtonPlay {
+  background-color: black;
+  border-radius: 30px;
+  border-color: black;
+  border-style: solid;
+  width: 180px;
+  margin: 0 10px;
+  display: flex;
+
+  color: white;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.welcomeModuleButtonPlay:hover {
+  cursor: pointer;
+}
+
+.welcomeModuleButton {
+  border-radius: 30px;
+  border-color: black;
+  border-width: 1px;
+  border-style: solid;
+  width: 180px;
+  margin: 0 10px;
+  display: flex;
+  text-align: center;
+
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.welcomeModuleButton:hover {
+  cursor: pointer;
+}
+
+.welcomeModuleFooter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  font-family: Helvetica;
+  font-size: small;
+}
+
+.footerBold {
+  font-weight: bold;
+  font-size: 15px;
+  margin-bottom: 3px;
+}
+
+.footerText {
+  margin-bottom: 3px;
+}
+
+/*
+Game Page Styles
+*/
+
+.gamePageHeader {
+  display: flex;
+  height: 54px;
+  align-items: center;
+  justify-content: space-between;
+
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: rgb(35, 35, 35);
+}
+
+.headerTitle {
+  font-size: 28px;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+}
+
+.gamePageItems {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+}
+
+.gamePageBoard {
+  display: grid;
+  gap: 2px;
+  padding: 12px;
+  align-items: center;
+  justify-content: center;
+}
+
+.boardRow {
+  display: flex;
+}
+
+.boardTile {
+  background-color: rgb(19, 19, 19);
+  width: 48px;
+  height: 48px;
+  border-width: 2px;
+  border-color: #3a3a3c;
+  border-style: solid;
+  margin: 1.5px;
+  transition: transform 0.1s cubic-bezier(0.25, 0.1, 0.25, 1);
+
+  /*for text*/
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 32px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.keyboardModule {
+  display: flex;
+  flex-direction: column;
+
+  height: 198px;
+  width: 484px;
+  padding: 4px;
+}
+
+.keyboardRow {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  height: 58px;
+  padding: 4px;
+}
+
+.keyboardSpacer {
+  width: 100%;
+  height: 58px;
+}
+
+button.keyboardButton {
+  background-color: rgb(110, 110, 110);
+
+  border-radius: 6px;
+  border-style: none;
+  width: 100%;
+
+  margin-right: 6px;
+
+  /*for text*/
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: large;
+  color: white;
+}
+button.keyboardButton:hover {
+  cursor: pointer;
+}
+button.keyboardButton:active {
+  border-style: outset;
+  border-style: none;
+}
+
+button.keyboardButtonLarge {
+  background-color: rgb(110, 110, 110);
+
+  border-radius: 8px;
+  border-style: none;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-right: 6px;
+
+  /*for text*/
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: x-small;
+  color: white;
+}
+button.keyboardButtonLarge:hover {
+  cursor: pointer;
+}
+button.keyboardButtonLarge:active {
+  border-style: outset;
+  border-style: none;
+}
+button:focus {
+  outline: none;
+}
+
+.enlarged {
+  transform: scale(1.1);
+}
+
+.icon {
+  height: 25px;
+  color: white;
+  margin-right: 12px;
+}
+.icon:hover {
+  cursor: pointer;
+}
+
+.lefticons {
+  display: flex;
+  align-items: center;
+}
+
+.flip-animation {
+  animation-name: flip;
+  animation-duration: 1.2s;
+  animation-timing-function: ease-in-out;
+}
+
+@keyframes flip {
+  0% {
+    transform: rotateX(0);
+  }
+  45% {
+    transform: rotateX(90deg);
+  }
+  55% {
+    transform: rotateX(90deg);
+  }
+  100% {
+    transform: rotateX(0);
+  }
+}

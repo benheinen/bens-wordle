@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wordle</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <script src="wordleFunctions.js"></script>
+    <script src="validWords.js"></script>
+  </head>
+  <body>
+    <div id="welcomePage" class="screen active-screen">
+      <div class="welcomeModuleContainer">
+        <img
+          class="welcomeModuleIcon"
+          src="assets/wordle-icon.png"
+          alt="wordle icon"
+        />
+        <h1 class="welcomeModuleTitle">Wordle</h1>
+        <h2 class="welcomeModuleSubTitle">
+          Get 6 chances to guess a 5-letter word.
+        </h2>
+        <div class="welcomeModuleButtonContainer">
+          <button class="welcomeModuleButton">How to play</button>
+          <button class="welcomeModuleButton">Log in</button>
+          <button
+            id="play"
+            class="welcomeModuleButtonPlay"
+            onclick="transitionTo('gamePage'); changeBackgroundColor('rgb(19, 19, 19)');"
+          >
+            Play
+          </button>
+        </div>
+        <div class="welcomeModuleFooter">
+          <div class="footerBold" id="footerDate">
+            <script>
+              getDate();
+            </script>
+          </div>
+          <div class="footerText">No. 987</div>
+          <div class="footerText">Edited by Ben Heinen</div>
+        </div>
+      </div>
+    </div>
+    <div id="gamePage" class="screen">
+      <div class="gamePageHeader">
+        <div class="lefticons">
+          <img
+            src="assets/hamburger.png"
+            alt=""
+            class="icon"
+            onclick="transitionTo('welcomePage');"
+          />
+          <div class="headerTitle">Wordle</div>
+        </div>
+        <div class="spacer"></div>
+        <div class="righticons">
+          <img src="assets/graph.png" alt="" class="icon" />
+          <img src="assets/question.png" alt="" class="icon" />
+        </div>
+      </div>
+      <div class="gamePageItems">
+        <div class="gamePageBoard">
+          <div class="boardRow" aria-label="Row 1">
+            <div class="boardTile" id="tileText_1_1"></div>
+            <div class="boardTile" id="tileText_2_1"></div>
+            <div class="boardTile" id="tileText_3_1"></div>
+            <div class="boardTile" id="tileText_4_1"></div>
+            <div class="boardTile" id="tileText_5_1"></div>
+          </div>
+          <div class="boardRow" aria-label="Row 2">
+            <div class="animation-delay-0">
+              <div class="boardTile" id="tileText_1_2"></div>
+            </div>
+            <div class="animation-delay-100">
+              <div class="boardTile" id="tileText_2_2"></div>
+            </div>
+            <div class="animation-delay-200">
+              <div class="boardTile" id="tileText_3_2"></div>
+            </div>
+            <div class="animation-delay-300">
+              <div class="boardTile" id="tileText_4_2"></div>
+            </div>
+            <div class="animation-delay-400">
+              <div class="boardTile" id="tileText_5_2"></div>
+            </div>
+          </div>
+          <div class="boardRow" aria-label="Row 3">
+            <div class="animation-delay-0">
+              <div class="boardTile" id="tileText_1_3"></div>
+            </div>
+            <div class="animation-delay-100">
+              <div class="boardTile" id="tileText_2_3"></div>
+            </div>
+            <div class="animation-delay-200">
+              <div class="boardTile" id="tileText_3_3"></div>
+            </div>
+            <div class="animation-delay-300">
+              <div class="boardTile" id="tileText_4_3"></div>
+            </div>
+            <div class="animation-delay-400">
+              <div class="boardTile" id="tileText_5_3"></div>
+            </div>
+          </div>
+          <div class="boardRow" aria-label="Row 4">
+            <div class="animation-delay-0">
+              <div class="boardTile" id="tileText_1_4"></div>
+            </div>
+            <div class="animation-delay-100">
+              <div class="boardTile" id="tileText_2_4"></div>
+            </div>
+            <div class="animation-delay-200">
+              <div class="boardTile" id="tileText_3_4"></div>
+            </div>
+            <div class="animation-delay-300">
+              <div class="boardTile" id="tileText_4_4"></div>
+            </div>
+            <div class="animation-delay-400">
+              <div class="boardTile" id="tileText_5_4"></div>
+            </div>
+          </div>
+          <div class="boardRow" aria-label="Row 5">
+            <div class="animation-delay-0">
+              <div class="boardTile" id="tileText_1_5"></div>
+            </div>
+            <div class="animation-delay-100">
+              <div class="boardTile" id="tileText_2_5"></div>
+            </div>
+            <div class="animation-delay-200">
+              <div class="boardTile" id="tileText_3_5"></div>
+            </div>
+            <div class="animation-delay-300">
+              <div class="boardTile" id="tileText_4_5"></div>
+            </div>
+            <div class="animation-delay-400">
+              <div class="boardTile" id="tileText_5_5"></div>
+            </div>
+          </div>
+          <div class="boardRow" aria-label="Row 6">
+            <div class="animation-delay-0">
+              <div class="boardTile" id="tileText_1_6"></div>
+            </div>
+            <div class="animation-delay-100">
+              <div class="boardTile" id="tileText_2_6"></div>
+            </div>
+            <div class="animation-delay-200">
+              <div class="boardTile" id="tileText_3_6"></div>
+            </div>
+            <div class="animation-delay-300">
+              <div class="boardTile" id="tileText_4_6"></div>
+            </div>
+            <div class="animation-delay-400">
+              <div class="boardTile" id="tileText_5_6"></div>
+            </div>
+          </div>
+        </div>
+        <div class="keyboardModule">
+          <div class="keyboardRow">
+            <button
+              class="keyboardButton"
+              id="button_q"
+              onclick="addLetter('q', currentPosition, currentRow)"
+            >
+              q
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_w"
+              onclick="addLetter('w', currentPosition, currentRow)"
+            >
+              w
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_e"
+              onclick="addLetter('e', currentPosition, currentRow)"
+            >
+              e
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_r"
+              onclick="addLetter('r', currentPosition, currentRow)"
+            >
+              r
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_t"
+              onclick="addLetter('t', currentPosition, currentRow)"
+            >
+              t
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_y"
+              onclick="addLetter('y', currentPosition, currentRow)"
+            >
+              y
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_u"
+              onclick="addLetter('u', currentPosition, currentRow)"
+            >
+              u
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_i"
+              onclick="addLetter('i', currentPosition, currentRow)"
+            >
+              i
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_o"
+              onclick="addLetter('o', currentPosition, currentRow)"
+            >
+              o
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_p"
+              onclick="addLetter('p', currentPosition, currentRow)"
+            >
+              p
+            </button>
+          </div>
+          <div class="keyboardRow">
+            <div class="keyboardSpacer"></div>
+            <button
+              class="keyboardButton"
+              id="button_a"
+              onclick="addLetter('a', currentPosition, currentRow)"
+            >
+              a
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_s"
+              onclick="addLetter('s', currentPosition, currentRow)"
+            >
+              s
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_d"
+              onclick="addLetter('d', currentPosition, currentRow)"
+            >
+              d
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_f"
+              onclick="addLetter('f', currentPosition, currentRow)"
+            >
+              f
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_g"
+              onclick="addLetter('g', currentPosition, currentRow)"
+            >
+              g
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_h"
+              onclick="addLetter('h', currentPosition, currentRow)"
+            >
+              h
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_j"
+              onclick="addLetter('j', currentPosition, currentRow)"
+            >
+              j
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_k"
+              onclick="addLetter('k', currentPosition, currentRow)"
+            >
+              k
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_l"
+              onclick="addLetter('l', currentPosition, currentRow)"
+            >
+              l
+            </button>
+            <div class="keyboardSpacer"></div>
+          </div>
+          <div class="keyboardRow">
+            <button class="keyboardButtonLarge" onclick="submit(letters)">
+              enter
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_z"
+              onclick="addLetter('z', currentPosition, currentRow)"
+            >
+              z
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_x"
+              onclick="addLetter('x', currentPosition, currentRow)"
+            >
+              x
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_c"
+              onclick="addLetter('c', currentPosition, currentRow)"
+            >
+              c
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_v"
+              onclick="addLetter('v', currentPosition, currentRow)"
+            >
+              v
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_b"
+              onclick="addLetter('b', currentPosition, currentRow)"
+            >
+              b
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_n"
+              onclick="addLetter('n', currentPosition, currentRow)"
+            >
+              n
+            </button>
+            <button
+              class="keyboardButton"
+              id="button_m"
+              onclick="addLetter('m', currentPosition, currentRow)"
+            >
+              m
+            </button>
+            <button
+              class="keyboardButtonLarge"
+              onclick="removeLetter(currentPosition, currentRow);"
+            >
+              delete
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
